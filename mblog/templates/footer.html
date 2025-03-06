@@ -1,0 +1,8 @@
+<!-- footer.html -->
+{% block footer %}
+    {% if now %}
+        <p>現在時間: {{ now }}</p>
+    {% else %}
+        <p>現在時間: 無法取得</p>
+    {% endif %}
+{% endblock %}
