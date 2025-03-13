@@ -12,7 +12,9 @@
 <h3><a href="/post/{{post.slug}}">{{ post.title }}</a></h3>
 <br>
 <p>{{ post.body }}</p>
-
+{% if not forloop.last %}
 <hr style="border: 1px dashed;">
-
-{% endfor %} {% endblock %}
+{% endif %}
+{% endfor %} 
+<hr style="border-top: 1px solid black;">
+{% endblock %}
