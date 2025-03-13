@@ -1,0 +1,71 @@
+/* 預設淺色模式 */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* 深色模式 */
+.dark-mode {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+.dark-mode .well {
+  background-color: #333 !important;
+  background-image: none !important;
+  color: white !important;
+  border-color: #444 !important;
+}
+/* 深色模式下的面板樣式 */
+.dark-mode .panel {
+  background-color: #252525 !important;
+  color: white !important;
+}
+
+/* 指定 panel-heading 的樣式 */
+.dark-mode .panel-heading {
+  background-color: #333 !important;
+  background-image: none !important;
+  color: white !important;
+  border-color: #444 !important;
+}
+
+/* 指定 panel-body 的樣式 */
+.dark-mode .panel-body {
+  background-color: #252525 !important;
+  color: white !important;
+}
+
+/* 指定 panel-footer 的樣式 */
+.dark-mode .panel-footer {
+  background-color: #333 !important;
+  background-image: none !important;
+  color: white !important;
+  border-color: #444 !important;
+}
+
+/* 列表項樣式 */
+.dark-mode .list-group-item {
+  background-color: #333 !important;
+  color: white !important;
+  border-color: #444 !important;
+}
+
+/* 按鈕樣式 */
+#dark-mode-toggle {
+  background-color: #f1f1f1;
+  color: #181818;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #ddd;
+}
+
+.dark-mode #dark-mode-toggle {
+  background-color: #333;
+  color: white;
+}
