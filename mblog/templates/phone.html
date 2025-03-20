@@ -1,0 +1,41 @@
+<!-- phone.html -->
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% block title %} {{post.title}} {% endblock %}
+{% block center_headmessage %}
+    <h3 style="font-family: 標楷體;">{{phone.name}}</h3>
+    <a style="font-family: 微軟正黑體;" href="/">回主頁</a>
+{% endblock %}
+{% block center_content %}
+    <p style="font-family: 微軟正黑體; font-size: 14px;font-weight:bold;">
+        <img src="{{ phone.image }}" alt="{{ phone.name }}" style="width: 100%; height: auto;">
+        {{ phone.intro | markdown }}
+    </p>
+{% endblock %}
+
+{% block right_headmessage %}
+<h3 style="font-family: 標楷體;">詳細資料</h3>
+{% endblock %}
+
+{% block right_content %}
+<div style="font-family: 微軟正黑體; font-size: 14px;">
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <td>{{ phone.name }}</td>
+        </tr>
+        <tr>
+            <th>RAM</th>
+            <td>{{ phone.ram }} GB</td>
+        </tr>
+        <tr>
+            <th>ROM</th>
+            <td>{{ phone.rom }} GB</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>NT$ {{ phone.price }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
