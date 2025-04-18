@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mainsite.views import homepage, about_page, list_page, budget_page
+from mainsite.views import homepage, about_page, list_page, budget_page, index, carlist
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/<int:id>', about_page),
     path('about/', about_page),
-    path('list', list_page),
+    path('list/', list_page),
     path('get_mybudget/<int:id>/<str:name>/<int:age>/<int:budget>', budget_page),
     path('get_mybudget', budget_page),
-    path('', homepage),
+    path('carlist/', carlist),
+    path('carlist/<int:maker>/', carlist, name='carlist-url'),
+    path('<int:tvno>/', index, name='tv-url'),
+    path('', index, name='tv-url'),
 ]

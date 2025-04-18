@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <h1>Welcome to mynewsite</h1>
-        <hr>
-        <ul>
-            <li><a href="/list">List</a></li>
-            <li><a href="/about">about</a></li>
-            <li><a href="/get_mybudget/7112029088/xxx/15/1000">查詢我能買什麼手機?</a></li>
-        </ul>
-        <hr>
-        <i>Good quotes: be the change that you wish to see in the world.</i>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="'tvcode" align="center">
+        <iframe width="704" height="396" 
+                src="https://www.youtube.com/embed/{{ tv.tvcode }}?autoplay=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    
+{% endblock %}
