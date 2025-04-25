@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.urls import path
 
 from mainsite.views import homepage, about_page, list_page, budget_page, index, carlist
+import mobilemarket.views as mobile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/<int:id>', about_page),
     path('about/', about_page),
     path('list/', list_page),
+    path('mobile/',  mobile.index),
+    path('mobile/<int:id>', mobile.detail, name='detail-url'),
     path('get_mybudget/<int:id>/<str:name>/<int:age>/<int:budget>', budget_page),
     path('get_mybudget', budget_page),
     path('carlist/', carlist),
