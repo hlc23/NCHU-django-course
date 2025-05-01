@@ -2,7 +2,7 @@ import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Product
+from .models import Product, TV
 
 # Create your views here.
 
@@ -43,16 +43,8 @@ def budget_page(request, id=7112029088, name="xxx", age=15, budget=1000):
 
 
 def index(req, tvno=0):
-    tv_list = [
-        {"name": "三立", "tvcode": "IBSOYl8GP2Q"},
-        {"name": "中視", "tvcode": "TCnaIE_SAtM"},
-        {"name": "中天", "tvcode": "vr3XyVCR4T0"},
-        {"name": "民視", "tvcode": "ylYJSBUgaMA"},
-    ]
-
-    now = datetime.datetime.now()
-    tv = tv_list[tvno]
-
+    tv_list = TV.objects.all()
+    tv = TV.objects.get(id=tvno)
     return render(req, "index.html", locals())
 
 

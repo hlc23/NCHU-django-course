@@ -9,9 +9,9 @@ def index(request):
     return render(request, 'mobile/index.html', locals())
 
 def detail(request, id):
-    try: 
+    try:
         product = Product.objects.get(id=id)
         images = PPhoto.objects.filter(product=product)
+    finally:
         return render(request, 'mobile/detail.html', locals())
-    except Product.DoesNotExist:
-        raise Http404("Product does not exist")
+        

@@ -1,6 +1,6 @@
 {% extends "mobile/base.html" %}
 {% load static %}
-{% block title %}DJ中古機賣場{% endblock %}
+{% block title %}{{ product.nickname | default:"查無產品" }}{% endblock %}
 {% block content %}
 <div class="container fluid" align="center">
 {% if product %}
