@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "mainsite",
     "mobilemarket",
+    "board"
 ]
 
 MIDDLEWARE = [
@@ -80,31 +81,31 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'mydb2': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb2',
-        'USER': 'django',
-        'PASSWORD': 'pwd',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-    },
-    'mydb3': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb3',
-        'USER': 'django',
-        'PASSWORD': 'pwd',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-    }
+    # 'mydb2': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'mydb2',
+    #     'USER': 'django',
+    #     'PASSWORD': 'pwd',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    #     'OPTIONS': {
+    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #     }
+    # },
+    # 'mydb3': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'mydb3',
+    #     'USER': 'django',
+    #     'PASSWORD': 'pwd',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    #     'OPTIONS': {
+    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #     }
+    # }
 }
 
-DATABASE_ROUTERS = [ 'mynewsite.router.Mydb2Router', 'mynewsite.router.TVRouter' ]
+# DATABASE_ROUTERS = [ 'mynewsite.router.Mydb2Router', 'mynewsite.router.TVRouter' ]
 
 
 # Password validation

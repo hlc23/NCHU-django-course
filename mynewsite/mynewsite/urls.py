@@ -19,9 +19,11 @@ from django.urls import path
 
 from mainsite.views import homepage, about_page, list_page, budget_page, index, carlist
 import mobilemarket.views as mobile
+import board.views as board
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('board/', board.index),
     path('about/<int:id>', about_page),
     path('about/', about_page),
     path('list/', list_page),

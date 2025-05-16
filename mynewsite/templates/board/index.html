@@ -1,0 +1,98 @@
+{% extends "board/base.html" %}
+{% block title %}我有話要說{% endblock %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+    {% endif %}
+
+
+    <form action="/board/" name="f">
+        <label for="name">Your name</label>
+        <input type="text" name="name" id="name" placeholder="Someone" />
+        <label for="pwd">Password</label>
+        <input type="password" name="pwd" id="pwd" placeholder="Password" />
+        <br>
+        <label for="mood">Your mood</label>
+            {% for mood in moods %}
+            <input type="radio" name="mood" value="{{ mood.status }}" />{{ mood.status }}
+            {% endfor %}
+            <br>
+        <label for="message">Your message</label><br>
+        <textarea name="message" id="message" rows="5" cols="30" placeholder="Your message"></textarea><br>
+        <label for="birth_year">Birth Year:</label>
+        <select name="birth_year" id="birth_year">
+            {% for i in years %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="topic">Topic</label>
+        <input type="text" name="topic">
+        <input type="submit" value="Post">
+        <input type="reset" value="Reset">
+    </form>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-heading" align="center">
+                <h3>Message Board</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for p in posts %}
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">{{ p.nickname }} 覺得 {{ p.mood }}</div>
+                <div class="panel panel-body"> {{ p.message | linebreaks }}</div>
+                <div class="panel panel-footer">
+                    Topic: {{ p.topic }}<br>
+                    Birth Year: {{ p.birth_year }}<br>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<!-- <div class="container">
+    <form action="/board/" name="my form" method="get">
+        <label for="user_id">Your ID:</label>
+        <input type="text" name="user_id" id="user_id" />
+        <label for="user_pass">Your password:</label>
+        <input type="password" name="user_pass" id="user_pass" />
+        <label for="year">出生年:</label>
+        <select name="year" id="year">
+            {% for i in years %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="checkbox" name="fcolor" value="Green" />Green
+        <input type="checkbox" name="fcolor" value="Red" />Red
+        <input type="checkbox" name="fcolor" value="Blue" />Blue
+        <input type="checkbox" name="fcolor" value="Yellow" />Yellow
+        <br>
+
+        <input type="submit" value="登入" />
+        <input type="reset" value="清除重填" />
+    </form>
+
+    Your ID: {{ user_id | default:"未輸入ID" }}<br />
+    Birth Year: {{ year | default:"未選擇" }}<br />
+    Favorite Color:
+    {% for c in fcolor %}
+        {{ c }}
+    {% empty %}
+        <em>未選擇</em>
+    {% endfor %}
+    <br />
+    {% if verified %}
+    <em>驗證通過</em>
+    {% else %}
+    <em>驗證失敗</em>
+    {% endif %}
+</div> -->
+{% endblock %}

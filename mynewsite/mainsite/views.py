@@ -1,4 +1,5 @@
 import datetime
+from math import e
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -43,9 +44,13 @@ def budget_page(request, id=7112029088, name="xxx", age=15, budget=1000):
 
 
 def index(req, tvno=0):
-    tv_list = TV.objects.all()
-    tv = TV.objects.get(id=tvno)
-    return render(req, "index.html", locals())
+    try:
+        tv_list = TV.objects.all()
+        tv = TV.objects.get(id=tvno)
+    except:
+        tv_list = []
+    finally:
+        return render(req, "index.html", locals())
 
 
 def carlist(req, maker=0):
