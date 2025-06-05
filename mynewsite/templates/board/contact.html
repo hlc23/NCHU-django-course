@@ -1,0 +1,27 @@
+{% extends "board/base.html" %}
+{% block title %}留言板{% endblock %}
+{% block content %}
+
+<div class="continer">
+    {% if message %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+    {% endif %}
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">
+            <form action="." method="post">
+                {% csrf_token %}
+            <h3>寫信給管理員</h3>
+        </div>
+        <div class="panel panel-body">
+            {{ form.as_p }}
+        </div>
+        <div class="panel panel-footer">
+            <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

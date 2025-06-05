@@ -20,3 +20,19 @@ class Post(models.Model):
     
     def __str__(self):
         return self.message
+
+class Contact(models.Model):
+    CITY = [
+        ['TP', 'Taipei'],
+        ['TC', 'Taichung'],
+        ['TN', 'Tainan']
+    ]
+    
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=2, choices=CITY)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.name} - {self.email}"

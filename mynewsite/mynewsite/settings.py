@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "mainsite",
     "mobilemarket",
-    "board"
+    "board",
+    "captcha",
 ]
 
 MIDDLEWARE = [

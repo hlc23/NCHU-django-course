@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
+from django.conf.urls import include
 from mainsite.views import homepage, about_page, list_page, budget_page, index, carlist
 import mobilemarket.views as mobile
 import board.views as board
@@ -24,6 +25,12 @@ import board.views as board
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', board.index),
+    path('board/<int:pid>/<str:delete_pwd>/', board.index, name='delete-url'),
+    path('board/posting/', board.post_page),
+    path('board/list/', board.list_page),
+    path('board/contact/', board.contact_page),
+    re_path(r'captcha', include('captcha.urls')),
+    
     path('about/<int:id>', about_page),
     path('about/', about_page),
     path('list/', list_page),

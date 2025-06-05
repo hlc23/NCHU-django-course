@@ -50,6 +50,16 @@
                 <div class="panel panel-footer">
                     Topic: {{ p.topic }}<br>
                     Birth Year: {{ p.birth_year }}<br>
+                    <span class="glyphicon glyphicon-trash" onclick="go_delete({{ p.id }})"></span>
+                    <script>
+                        function go_delete(id){
+                            var user_pass = document.getElementById("pwd").value;
+                            if (user_pass != ""){
+                                var url = `/board/${id}/${user_pass}`;
+                                window.location = url;
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
