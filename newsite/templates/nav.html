@@ -1,0 +1,20 @@
+{% load static %}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="/static/image/logo.png" alt="Logo" style="height: 30px; display: inline-block; margin-right: 10px;">
+                {% if tv %}
+                    Live: {{ tv.name }}
+                {% endif %}
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">HOME</a></li>
+            {% for tv in tv_list %}
+            <li><a href="{% url 'tv-url' forloop.counter0 %}">{{ tv.name }}</a></li>
+            {% endfor %}
+            <li><a href="/carlist/">汽車</a></li>
+        </ul>
+    </div>
+</nav>

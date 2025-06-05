@@ -1,0 +1,33 @@
+{% extends "board/base.html" %}
+{% block title %}我有話要說{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-heading" align="center">
+                <h3>Message Board</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for post in session_posts %}
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-{% cycle 'primary' 'success' 'info' %}">
+                <div class="panel panel-heading">{{ post.nickname }}</div>
+                <div class="panel panel-body">{{ post.message | linebreaks }}</div>
+                <div class="panel panel-footer">
+                    出生年份: {{ post.birth_year }}<br>
+                    發文時間: {{ post.pub_time }}<br>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-md-12">
+            <div class="alert alert-info" align="center">
+                目前沒有任何貼文
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

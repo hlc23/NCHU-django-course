@@ -1,0 +1,25 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+{% block title %}{{ product.nickname | default:"查無產品" }}{% endblock %}
+{% block content %}
+<div class="container fluid" align="center">
+{% if product %}
+<table>
+    <tr><td align="center"><h3>{{ product.nickname }}</h3></td></tr>
+    <tr><td align="center">{{ product.description }}</td></tr>
+    <tr><td align="center">西元 {{ product.year }} 年出廠</td></tr>
+    <tr><td align="center">售價: {{ product.price }} 元</td></tr>
+    {% for image in images %}
+        {% if forloop.first %}<tr><td align="center">{% endif %}
+        <img src="{{ image.url }}" alt="Product Image" width="350"><br>
+        {% if forloop.last %}</td></tr>{% endif %}
+    {% empty %}
+        <tr><td align="center">暫無圖片</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>查無此商品</h2>
+{% endif %}
+</div>
+{% endblock %}
+

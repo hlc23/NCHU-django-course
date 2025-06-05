@@ -1,0 +1,60 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+{% block title %}DJ中古機賣場{% endblock %}
+{% block content %}
+<div class="container" align=center>
+	{% for p in products %}
+    {% if forloop.first %}
+    <table>
+        <tr style="background-color: #cccccc">
+            <td style="width: 250px">庫存手機</td>
+            <td style="width: 150px">廠牌/型號</td>
+            <td style="width: 50px">出廠年</td>
+            <td style="width: 50px" align="right">價格</td>
+            <td style="width: 150px" align="right">商店</td>
+        </tr>
+    {% endif %}
+        <tr style="background-color: {% cycle '#ffccff' '#ccffcc' %}">
+            <td style="width: 250px">
+                {% if p.pmodel %}
+                <a href="{% url 'detail-url' p.id %}">
+                    {{ p.nickname }}
+                </a>
+                {% else %}
+                {{ p.nickname }}
+                {% endif %}
+            </td>
+            {% if p.pmodel %}
+                <td style="width: 150px">
+                        {{ p.pmodel.maker.name }}/{{ p.pmodel }}
+                </td>
+            {% else %}
+                <td style="width: 150px">
+                    此型號已停產/此型號已停產
+                </td>
+            {% endif %}
+
+            <td>{{ p.year }}</td>
+            <td align=right>{{ p.price }}</td>
+
+                
+            {% if p.store %}
+            <td align=right width=150px>
+                {{ p.store.name }}
+            </td>
+            {% else %}
+            <td align=right width=150px>
+                再等等
+            </td>
+            {% endif %}
+
+        </tr>
+    {% if forloop.last %}
+    </table>
+    {% endif %}
+    {% empty %}
+        <p>目前沒有任何手機</p>
+    {% endfor %}
+
+</div>
+{% endblock %}
